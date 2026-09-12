@@ -48,7 +48,15 @@ def main():
 
     output = ROOT / "playground"
     raw = f"https://raw.githubusercontent.com/{args.repo}/{quote(args.branch, safe='')}/playground"
-    links = ["# WordPress Playground demos", "", "Links work after these files are pushed to the public repository.", ""]
+    links = [
+        "# WordPress Playground demos",
+        "",
+        "Open a demo in WordPress Playground or view its Blueprint JSON.",
+        "Links work after these files are pushed to the public repository.",
+        "",
+        "| Demo | Playground | Blueprint |",
+        "| --- | --- | --- |",
+    ]
     for slug, archive in sites.items():
         destination = output / slug
         destination.mkdir(parents=True, exist_ok=True)
@@ -57,6 +65,8 @@ def main():
             "$schema": "https://playground.wordpress.net/blueprint-schema.json",
             "landingPage": "/",
             "login": True,
+            # Playground URLs aren't localhost, so Jetpack needs explicit offline mode.
+            "constants": {"JETPACK_DEV_DEBUG": True},
             "steps": [{
                 "step": "importWordPressFiles",
                 "wordPressFilesZip": {
@@ -71,9 +81,10 @@ def main():
             if screenshot.is_file():
                 shutil.copyfile(screenshot, destination / f"screenshot{extension}")
                 break
-        url = "https://playground.wordpress.net/?" + urlencode({"blueprint-url": f"{raw}/{slug}/blueprint.json"})
-        links.append(f"- [{slug}]({url})")
-        print(f"{slug}: {url}")
+        blueprint_url = f"{raw}/{slug}/blueprint.json"
+        url = "https://playground.wordpress.net/?" + urlencode({"blueprint-url": blueprint_url})
+        links.append(f"| **{slug}** | [Open playground]({url}) | [View blueprint JSON]({blueprint_url}) |")
+        print(f"{slug}:\n  Playground: {url}\n  Blueprint:  {blueprint_url}")
 
     (ROOT / "LINKS.md").write_text("\n".join(links) + "\n", encoding="utf-8")
     print("\nPrepared playground/ and LINKS.md. Commit and push them to publish the demos.")

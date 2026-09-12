@@ -11,8 +11,9 @@
    ```
 
 4. Commit and push `playground/` and `LINKS.md` to this public repository's `main`
-   branch. Copy the article links from `LINKS.md` and check each demo in a private
-   browser window, including navigation, images, and editing.
+   branch. `LINKS.md` lists each demo with an **Open playground** link and a
+   **View blueprint JSON** link. Copy the article links from there and check each
+   demo in a private browser window, including navigation, images, and editing.
 
 For example, `source/coastal-hotel.zip` produces:
 
@@ -42,3 +43,8 @@ opens the homepage, and enables automatic login. Launch links use the documented
 [`blueprint-url` parameter](https://developer.wordpress.org/playground/blueprints/using-blueprints/#load-blueprint-from-a-url)
 with public GitHub raw URLs. Files must be pushed before those links work; the
 script prepares local files and does not publish them. GitHub Pages is not needed.
+
+Blueprints enable [Jetpack Offline Mode](https://jetpack.com/support/offline-mode/)
+with `JETPACK_DEV_DEBUG`. This keeps included modules such as Forms working when
+a snapshot moves from `localhost` to a Playground URL without a WordPress.com
+connection. Plugin files and activation settings still come from the snapshot.

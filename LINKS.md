@@ -1,5 +1,8 @@
 # WordPress Playground demos
 
+Open a demo in WordPress Playground or view its Blueprint JSON.
 Links work after these files are pushed to the public repository.
 
-- [golf-course](https://playground.wordpress.net/?blueprint-url=https%3A%2F%2Fraw.githubusercontent.com%2Fjverneaut%2Fplaygrounds%2Fmain%2Fplayground%2Fgolf-course%2Fblueprint.json)
+| Demo | Playground | Blueprint |
+| --- | --- | --- |
+| **golf-course** | [Open playground](https://playground.wordpress.net/?blueprint-url=https%3A%2F%2Fraw.githubusercontent.com%2Fjverneaut%2Fplaygrounds%2Fmain%2Fplayground%2Fgolf-course%2Fblueprint.json) | [View blueprint JSON](https://raw.githubusercontent.com/jverneaut/playgrounds/main/playground/golf-course/blueprint.json) |

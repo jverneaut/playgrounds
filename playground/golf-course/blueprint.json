@@ -2,6 +2,9 @@
   "$schema": "https://playground.wordpress.net/blueprint-schema.json",
   "landingPage": "/",
   "login": true,
+  "constants": {
+    "JETPACK_DEV_DEBUG": true
+  },
   "steps": [
     {
       "step": "importWordPressFiles",
