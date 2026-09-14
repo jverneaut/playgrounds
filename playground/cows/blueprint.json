@@ -1,0 +1,17 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/",
+  "login": true,
+  "constants": {
+    "JETPACK_DEV_DEBUG": true
+  },
+  "steps": [
+    {
+      "step": "importWordPressFiles",
+      "wordPressFilesZip": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/jverneaut/playgrounds/main/playground/cows/playground.zip"
+      }
+    }
+  ]
+}
